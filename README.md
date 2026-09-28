@@ -97,17 +97,31 @@ TimeProvider (dependency injection)
 5. **Alarm Triggering Once**: Status changes PENDING → TRIGGERED, prevents duplicates
 6. **UTC-agnostic**: Comparisons work correctly across timezones using datetime objects
 
+## Project Structure
+
+```
+alarm-cli/
+├── alarm.py                    # Main CLI application
+├── README.md                   # This file
+├── tests/
+│   └── test_alarm.py          # All unit and integration tests (38 tests)
+└── docs/
+    ├── FIXES.md               # Issues found and fixed
+    ├── QUICK_REFERENCE.md     # Quick reference guide
+    └── REVIEW_COMPLETE.md     # Code review summary
+```
+
 ## Running Tests
 
 ```bash
 # All tests (38 total)
-python -m unittest test_alarm -v
+python -m unittest tests.test_alarm -v
 
 # Specific test class
-python -m unittest test_alarm.TestAlarmManager -v
+python -m unittest tests.test_alarm.TestAlarmManager -v
 
 # Specific test
-python -m unittest test_alarm.TestAlarmModel.test_alarm_creation_with_timezone -v
+python -m unittest tests.test_alarm.TestAlarmModel.test_alarm_creation_with_timezone -v
 ```
 
 ## Test Coverage
